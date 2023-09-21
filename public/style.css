@@ -1,0 +1,133 @@
+body{
+    margin: 0;
+    background-color: black;
+    background-image: url('https://images.purexbox.com/6c4ae5b99340c/1280x720.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+h3{
+    margin: 0;
+    color: white;
+    font-size: 16px;
+}
+.container{
+    max-width: 1300px;
+    margin: 0 auto;
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+.header_menu{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.fa-bars,  .fa-heart{
+    color: white;
+}
+.searchInput{
+    width: 700px;
+    padding: 6px;
+    border-radius: 5px;
+    border: none;
+}
+.searchBAr{
+    position: relative;
+
+}
+.fa-magnifying-glass{
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+span{
+    color: #33C5F3;
+}
+.watchlist{
+    display: flex;
+    text-align: center;
+    gap: 7px;
+}
+.bgClr{
+    background-color: rgb(18, 18, 18);
+}
+.searchBtn{
+    position: absolute;
+    right: 0;
+    background-color: transparent;
+    border: none;
+}
+.content {
+    
+}
+.dataCards{
+    display: flex;
+    max-width: 1200px;
+    margin: 15px auto;
+    background-color: aliceblue;
+    border-radius: 20px;
+}
+.dataCards img{
+    height: 240px;
+    width: 200px;
+    padding-right: 20px;
+}
+.dataCards_content{
+    flex: 1;
+}
+.dataCards_btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 15px;
+}
+.dataCards_btn button{
+    background-color: hwb(50 0% 0%);
+    border: none;
+    padding: 9px;
+    border-radius: 5px;
+}
+.MainContent {
+    background-color: aliceblue;
+    padding: 10px;
+    display: flex;
+}
+.MainContent img{
+    max-width: 500px;
+    height: 500px;
+    padding-right: 15px;
+}
+.rating{
+    color: black;
+}
+.dataCard{
+    background-color: #2d2c2c;
+    width: 235px;
+    margin: 20px;
+}
+.dataCard img{
+    width: 100%;
+    height: 250px;
+}
+.dataCard_btn button{
+    background-color: hwb(50 0% 0%);
+    border: none;
+    padding: 9px 35px;
+    border-radius: 5px;    
+}
+.searchMainContent{
+    display: flex
+}
+.MainContent_flex{
+    display: flex;
+}
+.MainContent_title{
+    flex: 1;
+}
+.data-item{
+    background-color: aliceblue;
+    margin-right: 15px;
+}
