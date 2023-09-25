@@ -19,6 +19,7 @@ header{
     align-items: center;
     justify-content: space-between;
     padding: 10px 0;
+    background-color: black;
 }
 .header_menu{
     display: flex;
@@ -119,7 +120,9 @@ span{
     border-radius: 5px;    
 }
 .searchMainContent{
-    display: flex
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    
 }
 .MainContent_flex{
     display: flex;
@@ -130,4 +133,15 @@ span{
 .data-item{
     background-color: aliceblue;
     margin-right: 15px;
+}
+.watchlist_dataCards img{
+    height: 400px;
+}
+.watchlist_dataCards{
+    margin: 20px 10px;
+}
+.watchList{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: white;
 }

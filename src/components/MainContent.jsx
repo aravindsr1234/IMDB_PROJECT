@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 function MainContent() {
+    const navigate = useNavigate()
 
     const [data, setData] = useState([]);
-    console.log(data)
     const [idData, setIdData] = useState([]);
-    console.log(idData)
+    const [isAddedToWatchlist, setIsAddedToWatchlist] = useState(false);
 
     let params = new URLSearchParams(document.location.search);
     let id = params.get("id");
@@ -17,32 +18,41 @@ function MainContent() {
             .then((res) => {
                 console.log(res.data)
                 setIdData(res.data)
+                dataWithId(res.data.title)
             })
-
     }, []);
 
-    useEffect(() => {
-        console.log("datas", idData.title)
-
-        const res = axios.get(`https://imdb-api.projects.thetuhin.com/search?query=${idData.title}`)
+    function dataWithId(title) {
+        console.log("datas", title)
+        const res = axios.get(`https://imdb-api.projects.thetuhin.com/search?query=${title}`)
             .then((res) => {
                 console.log("response data  ", res.data)
                 setData(res.data)
-
             })
         console.log(res)
-
-    }, []);
-
-
-    const addToWatchlist = () => {
-        alert()
-        const uniqueKey = `watchlistData_${Date.now()}`;
-        localStorage.setItem(uniqueKey, JSON.stringify(idData));
     }
 
+    const addToWatchlist = () => { 
+        console.log("watchlist check");
+        const watchlist = {
+            id: idData.id,
+            image: idData.image,
+            title: idData.title
+        }
+        console.log("watchlist data", watchlist);
 
+        axios.post("http://localhost:3005", {
+            id: idData.id,
+            image: idData.image,
+            title: idData.title
+        })
+            .then((res) => {
+                console.log(res);
 
+            })
+        navigate('/Watchlist')
+        setIsAddedToWatchlist(true);
+    }
     return (
         <div>
             <div className="MainContent">
@@ -51,7 +61,7 @@ function MainContent() {
                     <div className="MainContent_flex">
                         <h1 className="MainContent_title">{idData.title}</h1>
                         <div className="dataCard_btn">
-                        <button onClick={addToWatchlist}>Add to Watchlist</button>
+                            <button onClick={addToWatchlist}>Add to Watchlist</button>
                         </div>
                     </div>
                     {/* <h3 className="rating">Rating Count : {idData.rating.count + " Rating : " + idData.rating.star}</h3> */}
@@ -67,9 +77,9 @@ function MainContent() {
                                 <h3>{item.title}</h3>
                                 <h1>{item.type}</h1>
                             </div>
-                            <div className="dataCard_btn">
+                            {/* <div className="dataCard_btn">
                                 <button>+</button>
-                            </div>
+                            </div> */}
                         </div>
                     ))
                 ) : (
